@@ -47,7 +47,7 @@ public class NetChat implements ChatServer {
     }
 
     @Override
-    public void pushMessage(String message) {
+    public synchronized void pushMessage(String message) {
         lastMessage = message;
         for(ClientObserver client : chatClients){
             client.update();
